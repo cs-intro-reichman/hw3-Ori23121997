@@ -62,10 +62,10 @@ public class LoanCalc {
 	// we need to create f(x)>0 and f(y)<0 and than fx+fy/2 
 	// if fx+fy/2 > 0 fx = fx+fy/2 
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
-		double H = loan/n;
-		double L = loan*1.01;
+		double L = loan/n;
+		double H = loan  - loan/n;
 		double g = (L+H)/2.0; 
-		while (Math.abs(endBalance(loan, rate, n, H)-endBalance(loan, rate, n, L)) > epsilon) {
+		while ( H-L > epsilon) {
 			if (endBalance(loan, rate, n, g)>0 ) {
 				H = g;				
 			}else {
