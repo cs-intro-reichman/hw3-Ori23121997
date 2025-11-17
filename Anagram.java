@@ -69,9 +69,8 @@ public class Anagram {
 		String res="";
 		String copy = str;
 		for (int i = 0 ; i<copy.length();i++){
-			double j = Math.random()*(str.length()-1);
-			j = Math.round(j);
-			res = res + str.charAt((int)j); 
-			str = str.replace("" + str.charAt((int)j), "");
-		}return res;
+			int j = (int)(Math.random() * str.length());			
+			res = res + str.charAt(j); 
+			str = str.substring(0, j) + str.substring(j + 1);		}
+			return res;
 	}}
